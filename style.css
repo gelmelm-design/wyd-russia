@@ -1,0 +1,1055 @@
+:root {
+    color-scheme: light;
+
+    --bg: #FFFFFF;
+    --panel: #F8F6F1;
+
+    --gold: #A78343;
+    --gold-dark: #806B43;
+
+    --text: #252525;
+    --muted: #666666;
+    --border: #E8E1D4;
+}
+
+/* Размеры элементов учитывают внутренние отступы */
+* {
+    box-sizing: border-box;
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Общий стиль страницы */
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* Ссылки */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================================
+   2. ШАПКА САЙТА
+   ========================================= */
+
+.header {
+    min-height: 76px;
+    padding: 16px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+}
+
+/* Название сайта */
+.brand {
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    white-space: nowrap;
+}
+
+/* Правая часть шапки */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Год */
+.year {
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+/* =========================================
+   3. ГЛАВНОЕ МЕНЮ
+   ========================================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 48px);
+    max-width: 1440px;
+
+    margin: 16px auto;
+    padding: 18px 24px;
+
+    /* Полупрозрачный фон с эффектом стекла */
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+    top: 12px;
+    z-index: 10;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Эффект при наведении на меню */
+.nav:hover {
+    background: rgba(255, 255, 255, 0.97);
+    border-color: rgba(167, 131, 67, 0.35);
+    box-shadow: 0 12px 38px rgba(0, 0, 0, 0.12);
+}
+
+/* Список пунктов меню */
+.nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ссылки меню */
+.nav a {
+    position: relative;
+    display: inline-block;
+
+    padding: 10px 14px;
+
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+
+    border-radius: 12px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Золотая линия под пунктом меню */
+.nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 5px;
+
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+
+    transition: transform 0.25s ease;
+}
+
+/* Эффект наведения на ссылку */
+.nav a:hover {
+    color: var(--gold-dark);
+    background: rgba(167, 131, 67, 0.08);
+
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* =========================================
+   4. ГЛАВНЫЙ ЭКРАН С ФОТОГРАФИЕЙ
+   ========================================= */
+
+.hero {
+    position: relative;
+
+    width: 94%;
+    min-height: 590px;
+
+    margin: 28px auto 0;
+    overflow: hidden;
+    border-radius: 24px;
+
+    /* Фотография Сеула и затемняющий слой */
+    background-image:
+        linear-gradient(
+            rgba(8, 11, 24, 0.35),
+            rgba(8, 11, 24, 0.65)
+        ),
+        url("https://img.pac.ru/landmarks/461440/big/B37BEFEBC0A8801458A9C86FF8C55812.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    text-align: left;
+    color: #FFFFFF;
+}
+
+/* Контейнер текста на главном экране */
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+    padding: 48px;
+
+    margin: 0 auto 0 0;
+
+    text-align: left;
+}
+
+/* Маленькая надпись над заголовком */
+.eyebrow {
+    color: #A78343;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Надпись на главном экране */
+.hero .eyebrow {
+    color: #F0D49A;
+}
+
+/* Заголовок «СЕУЛ 2027» */
+h1 {
+    margin: 20px 0;
+
+    font-size: clamp(54px, 8vw, 100px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+}
+
+/* Слоган */
+.side-label {
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+/* Описание главного экрана */
+.hero-description {
+    max-width: 560px;
+    margin: 18px 0 0;
+
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Даты и место проведения */
+.date {
+    margin-top: 22px;
+
+    color: #F0D49A;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Контейнер кнопок */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    gap: 12px;
+    margin-top: 28px;
+}
+
+/* Общий стиль кнопок */
+.button {
+    display: inline-flex;
+
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 22px;
+
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+/* Главная кнопка */
+.button-primary {
+    color: #FFFFFF;
+    background: var(--gold);
+}
+
+.button-primary:hover {
+    background: var(--gold-dark);
+}
+
+/* Вторая кнопка */
+.button-secondary {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+
+    border-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+}
+
+.button-secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* =========================================
+   5. СЕКЦИИ САЙТА
+   ========================================= */
+
+.section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 76px 5%;
+}
+
+/* Заголовок секции и подпись */
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    margin: 10px 0 0;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+/* Дополнительное описание */
+.section-description {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* =========================================
+   6. ГЛАВНАЯ СТАТЬЯ
+   ========================================= */
+
+.article-card {
+    padding: 32px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.article-card h3 {
+    margin: 14px 0;
+    font-size: 27px;
+}
+
+.article-card p {
+    max-width: 850px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* Ссылка на статью */
+.text-link {
+    display: inline-block;
+    margin-top: 10px;
+
+    color: var(--gold-dark);
+    font-weight: 700;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   7. КАРТОЧКИ РАЗДЕЛОВ
+   ========================================= */
+
+.cards {
+    display: grid;
+
+    /* Три колонки на широком экране */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+    margin-top: 20px;
+}
+
+/* Одна карточка */
+.feature {
+    display: block;
+    min-height: 205px;
+    padding: 26px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Эффект наведения на карточку */
+.feature:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
+
+/* Номер категории */
+.feature-number {
+    color: var(--gold-dark);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* Заголовок карточки */
+.feature h3 {
+    margin: 24px 0 10px;
+    font-size: 20px;
+}
+
+/* Текст карточки */
+.feature p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   8. БЛОК С ЦИТАТОЙ
+   ========================================= */
+
+.quote {
+    padding: 36px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 18px;
+}
+
+/* Кавычка */
+.quote-mark {
+    color: var(--gold);
+    font-size: 42px;
+    line-height: 1;
+}
+
+/* Текст цитаты */
+.quote p {
+    max-width: 900px;
+    font-size: clamp(20px, 3vw, 29px);
+    line-height: 1.5;
+}
+
+/* =========================================
+   9. ПОДВАЛ
+   ========================================= */
+
+footer {
+    padding: 30px 5%;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* =========================================
+   10. ПЛАНШЕТЫ
+   ========================================= */
+
+@media (max-width: 800px) {
+    .nav {
+        width: calc(100% - 24px);
+        padding: 12px;
+        border-radius: 18px;
+    }
+
+    .nav ul {
+        gap: 4px;
+    }
+
+    .nav a {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 520px;
+        margin-top: 14px;
+    }
+
+    .hero-content {
+        padding: 32px;
+    }
+
+    h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .section {
+        padding: 56px 20px;
+    }
+
+    /* Две колонки карточек */
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feature {
+        min-height: auto;
+    }
+}
+
+/* =========================================
+   11. ТЕЛЕФОНЫ
+   ========================================= */
+
+@media (max-width: 520px) {
+    .header {
+        min-height: 64px;
+        padding: 16px;
+    }
+
+    .brand {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    /* Скрываем год на узком экране */
+    .year {
+        display: none;
+    }
+
+    .nav {
+        justify-content: flex-start;
+        padding: 12px;
+    }
+
+    .nav ul {
+        justify-content: flex-start;
+    }
+
+    .hero {
+        width: calc(100% - 24px);
+        min-height: 540px;
+
+        margin: 14px auto 0;
+
+        background-position: center;
+    }
+
+    .hero-content {
+        padding: 28px 20px;
+    }
+
+    h1 {
+        font-size: clamp(48px, 14vw, 72px);
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .date {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    /* Кнопки располагаются друг под другом */
+    .actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Одна колонка карточек */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card,
+    .quote {
+        padding: 22px;
+    }
+
+    .article-card h3 {
+        font-size: 23px;
+    }
+}
+
+/* =========================================
+   12. УЧЁТ НАСТРОЕК АНИМАЦИИ УСТРОЙСТВА
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Принудительно выстраиваем ленту слайдов в одну горизонтальную линию */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+/* Делаем так, чтобы каждый слайд занимал всю ширину и центрировал цитату */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Добавляем отступ снизу для точек пагинации */
+.swiper {
+  padding-bottom: 40px !important;
+}
+/* Добавляем поддержку свайпа пальцем для самой ленты */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+
+  /* ВОТ ЭТИ ДВЕ СТРОЧКИ ВКЛЮЧАЮТ СВАЙП: */
+  overflow-x: auto !important;
+  scroll-snap-type: x mandatory !important;
+}
+
+/* Делаем так, чтобы карточки примагничивались ровно по центру экрана */
+.swiper-slide {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+
+  /* ВОТ ЭТА СТРОЧКА МАГНИТИТ КАРТОЧКУ: */
+  scroll-snap-align: center !important;
+}
+
+/* Скрываем некрасивую полосу прокрутки снизу (скроллбар) */
+.swiper-wrapper::-webkit-scrollbar {
+  display: none !important;
+}
+.swiper {
+  width: 100%;
+  padding-bottom: 50px !important;
+}
+
+/* Центрируем карточки внутри слайдов */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Красим активную точку пагинации в золотистый цвет */
+.swiper-pagination-bullet-active {
+  background: #bfa36f !important;
+}
+/* Принудительно красим текст внутри ВСЕХ слайдов в правильные темные цвета */
+.swiper-slide .quote p {
+  color: #111111 !important; /* Насыщенный темный цвет для самой цитаты */
+}
+
+.swiper-slide .quote .section-description {
+  color: #666666 !important; /* Аккуратный серый цвет для подписи автора */
+  text-align: center !important; /* Центрируем подпись автора, чтобы было красиво */
+}
+/* Принудительно возвращаем бежевый фон и видимость для ВСЕХ карточек */
+.swiper-slide .quote {
+  background-color: #FAF9F6 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+/* Принудительно заставляем активный слайд стать видимым на 100% */
+.swiper-slide-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.swiper-slide-active .quote {
+  background-color: #FAF9F6 !important; /* Гарантируем бежевый фон */
+  display: block !important;
+}
+
+
+
